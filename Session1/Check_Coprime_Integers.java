@@ -1,5 +1,3 @@
-package Session1;
-
 import java.util.Scanner;
 
 public class Check_Coprime_Integers {

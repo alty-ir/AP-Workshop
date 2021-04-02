@@ -1,9 +1,6 @@
-package Session1;
-
 public class Foreach {
     public static void main(String[] args) {
-        String myStr = args[0];
-        for (char s : myStr.toCharArray()) {
+        for (String s : args) {
             System.out.println(s);
         }
     }
