@@ -38,6 +38,7 @@ public class Lab {
      */
     public void setStudents(Student[] students) {
         this.students = students;
+        //current size
     }
 
     /**
@@ -52,7 +53,7 @@ public class Lab {
      */
     public void calculateAvg() {
         int sum = 0;
-        for (int i = 0; i < students.length; i++) {
+        for (int i = 0; i < students.length; i++) {//current size
             sum += students[i].getGrade();
         }
         avg = sum / students.length;
@@ -105,11 +106,11 @@ public class Lab {
      */
     public void print() {
         for (int i = 0; i < students.length; i++) {
-            System.out.println("Name: " + students[i].getFirstName()
-                    + " Id:" + students[i].getId()
-                    + " Frade:" + students[i].getGrade());
+            System.out.println("std fname: " + students[i].getFirstName()
+                    + " std id:" + students[i].getId()
+                    + " std grade:" + students[i].getGrade());
         }
         calculateAvg();
-        System.out.println("Average:" + getAvg());
+        System.out.println("Lab AVG:" + getAvg());
     }
 }

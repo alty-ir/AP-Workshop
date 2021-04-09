@@ -14,7 +14,7 @@ public class Test {
 //        std3.print();
         std3.setGrade(10);
         std3.setFirstName("HamidReza");
-//        std3.print();
+        //std3.print();
 
         int cap = 3;
         Lab ap = new Lab("sat",cap);

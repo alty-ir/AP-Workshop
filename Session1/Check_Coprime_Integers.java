@@ -12,7 +12,7 @@ public class Check_Coprime_Integers {
         if (first > second)
             i = first;
         else
-            i = first;
+            i = second;
 
         while ((first % i != 0) || (second % i != 0)) {
             i--;
