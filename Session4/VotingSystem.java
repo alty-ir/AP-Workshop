@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 /**
  * A class to make a Voting System.
+ * 
  * @author Ali Tabesh
  * @version 1.0
  */
@@ -19,13 +20,14 @@ public class VotingSystem {
 
     /**
      * create a new Voting
+     * 
      * @param question question of voting
-     * @param type type of voting
-     * @param choices choices of voting
+     * @param type     type of voting
+     * @param choices  choices of voting
      */
-    public void createVoting(String question, int type, ArrayList<String> choices ) {
+    public void createVoting(String question, int type, ArrayList<String> choices) {
         Voting voting = new Voting(type, question);
-        for (String temp: choices) {
+        for (String temp : choices) {
             voting.createChoice(temp);
         }
         votingList.add(voting);
@@ -34,17 +36,18 @@ public class VotingSystem {
 
     /**
      * delete a Voting.
+     * 
      * @param index index of voting for delete.
      */
-    public void deleteVoting (int index) {
-        if(validIndex(index)) {
+    public void deleteVoting(int index) {
+        if (validIndex(index)) {
             votingList.remove(index);
             System.out.println("This voting has been removed.");
         }
     }
 
     public void vote(int index, Person person, ArrayList<String> votes) {
-        if(validIndex(index)) {
+        if (validIndex(index)) {
             votingList.get(index).vote(person, votes);
         }
     }
@@ -53,34 +56,34 @@ public class VotingSystem {
      * print Voting questions.
      */
     public void printVotingQuestions() {
-        for (Voting temp: votingList) {
+        for (Voting temp : votingList) {
             System.out.println(temp.getQuestion());
         }
     }
 
     /**
      * print Voting.
+     * 
      * @param index index of voting.
      */
     public void printVoting(int index) {
-        if (validIndex(index))
-        {
-            System.out.println("Question: "+ votingList.get(index).getQuestion());
+        if (validIndex(index)) {
+            System.out.println("Question: " + votingList.get(index).getQuestion());
             ArrayList<String> temp;
             temp = votingList.get(index).getChoices();
-            for (String move: temp)
-            {
-                System.out.println("\t"+move);
+            for (String move : temp) {
+                System.out.println("\t" + move);
             }
         }
     }
 
     /**
      * Print result a voting.
+     * 
      * @param index index of voting.
      */
     public void printResult(int index) {
-        if(validIndex(index)) {
+        if (validIndex(index)) {
             System.out.println("print result:");
             System.out.println('\t' + "voters:");
             votingList.get(index).getVoters();
@@ -91,29 +94,27 @@ public class VotingSystem {
 
     /**
      * Vote Random
-     * @param index index of voting.
+     * 
+     * @param index  index of voting.
      * @param person voter.
      */
-    public void voteRandom(int index,Person person)
-    {
-        if (validIndex(index) && votingList.get(index).getType() == 0)
-        {
+    public void voteRandom(int index, Person person) {
+        if (validIndex(index) && votingList.get(index).getType() == 0) {
             votingList.get(index).RandomChoice(person);
         }
     }
 
     /**
-     * Determine whether the given index is valid for the collection.
-     * Print an error message if it is not.
+     * Determine whether the given index is valid for the collection. Print an error
+     * message if it is not.
+     * 
      * @param index The index to be checked.
      * @return true if the index is valid, false otherwise.
      */
-    private boolean validIndex(int index)
-    {
-        if(index >= 0 && index < votingList.size()) {
+    private boolean validIndex(int index) {
+        if (index >= 0 && index < votingList.size()) {
             return true;
-        }
-        else {
+        } else {
             System.out.println("Index isn't valid.");
             return false;
         }

@@ -3,6 +3,7 @@ import java.util.*;
 
 /**
  * A class to make a Voting.
+ * 
  * @author Ali Tabesh
  * @version 1.0
  */
@@ -11,16 +12,16 @@ public class Voting {
     private int type;
     // A question of voting.
     private String question;
-    // An ArrayList for storing the  voters.
+    // An ArrayList for storing the voters.
     private ArrayList<Person> voters;
     // A HashMap for storing list of votes to choices.
     private HashMap<String, HashSet<Vote>> listOfVotesToChoices;
 
     /**
-     * Create a new voting with a given type and question.
-     * Create a voters collection and listOfVotesToChoices and choices collection.
+     * Create a new voting with a given type and question. Create a voters
+     * collection and listOfVotesToChoices and choices collection.
      *
-     * @param type type of voting.
+     * @param type     type of voting.
      * @param question question of voting.
      */
     public Voting(int type, String question) {
@@ -32,6 +33,7 @@ public class Voting {
 
     /**
      * get The question.
+     * 
      * @return question field.
      */
     public String getQuestion() {
@@ -44,6 +46,7 @@ public class Voting {
 
     /**
      * get The type of voting.
+     * 
      * @return type field.
      */
     public int getType() {
@@ -53,7 +56,7 @@ public class Voting {
     /**
      * Operate a voting.
      *
-     * @param person person of vote.
+     * @param person  person of vote.
      * @param choices choices of vote.
      */
     public void vote(Person person, ArrayList<String> choices) {
@@ -75,9 +78,8 @@ public class Voting {
             } else {
                 System.out.println("Type isn't valid.");
             }
-        }
-        else {
-            System.out.println("This person voted later.");
+        } else {
+            System.out.println("This person voted before.");
         }
     }
 
@@ -85,7 +87,7 @@ public class Voting {
      * Print voters list.
      */
     public void getVoters() {
-        for(Person temp : voters) {
+        for (Person temp : voters) {
             System.out.println(temp.toString());
         }
     }
@@ -95,9 +97,9 @@ public class Voting {
      */
     public void printVotes() {
         int count = 1;
-        for ( String temp : listOfVotesToChoices.keySet()) {
+        for (String temp : listOfVotesToChoices.keySet()) {
             System.out.println(count + "-" + temp + ": " + listOfVotesToChoices.get(temp).size() + " votes");
-            for(Vote temp2 : listOfVotesToChoices.get(temp)) {
+            for (Vote temp2 : listOfVotesToChoices.get(temp)) {
                 System.out.print(" " + temp2.getPerson().toString() + ",");
             }
             System.out.println();
@@ -107,6 +109,7 @@ public class Voting {
 
     /**
      * get The voting choice collection
+     * 
      * @return choices
      */
     public ArrayList<String> getChoices() {
@@ -115,14 +118,14 @@ public class Voting {
 
     /**
      * random vote
+     * 
      * @param person person
      */
-    public void RandomChoice(Person person)
-    {
+    public void RandomChoice(Person person) {
         Random random = new Random();
         String randChoice = getChoices().get(random.nextInt(getChoices().size()));
-        ArrayList<String>Choice = new ArrayList<>();
+        ArrayList<String> Choice = new ArrayList<>();
         Choice.add(randChoice);
-        vote(person,Choice);
+        vote(person, Choice);
     }
 }
