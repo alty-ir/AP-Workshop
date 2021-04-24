@@ -60,13 +60,13 @@ public class Vote {
         return getDate().equals(vote.getDate());
     }
 
-    // /**
-    //  * @return a integer
-    //  */
-    // @Override
-    // public int hashCode() {
-    //     int result = getPerson().hashCode();
-    //     result = 31 * result + getDate().hashCode();
-    //     return result;
-    // }
+    /**
+     * @return a integer
+     */
+    @Override
+    public int hashCode() {
+        int result = getPerson().hashCode();
+        result = 31 * result + getDate().hashCode();
+        return result;
+    }
 }
