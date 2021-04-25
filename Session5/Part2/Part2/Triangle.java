@@ -8,7 +8,7 @@ public class Triangle extends Polygon {
      *
      * @param sides The Third side of triangle.
      */
-    public Triangle(double... sides) {
+    public Triangle(double[] sides) {
         super(sides);
     }
 

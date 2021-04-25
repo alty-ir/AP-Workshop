@@ -8,7 +8,7 @@ public class Rectangle extends Polygon {
      *
      * @param sides The second side of rectangle.
      */
-    public Rectangle(double... sides) {
+    public Rectangle(double[] sides) {  
         super(sides);
     }
 

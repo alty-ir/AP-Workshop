@@ -5,7 +5,6 @@ import java.util.Objects;
 
 import static java.lang.Math.sqrt;
 
-
 public class Polygon extends Shape {
 
     protected ArrayList<Double> sides;
@@ -15,9 +14,9 @@ public class Polygon extends Shape {
      *
      * @param sides The sides of polygon.
      */
-    public Polygon(double... sides) {
+    public Polygon(double[] isides) {
         this.sides = new ArrayList<>();
-        for (double temp : sides) {
+        for (double temp : isides) {
             this.sides.add(temp);
         }
     }
@@ -51,12 +50,11 @@ public class Polygon extends Shape {
      * @return area
      */
     @Override
-    public double calculateArea() {
-        if (this.getClass().getName().equals("Part2.Triangle")) {
-            return (sqrt(calculatePerimeter() / 2 *
-                    (calculatePerimeter() / 2 - sides.get(0)) *
-                    (calculatePerimeter() / 2 - sides.get(1)) *
-                    (calculatePerimeter() / 2 - sides.get(2))));
+    public double calculateArea() { // correct
+        // if (this.getClass().getName().equals("Part2.Triangle")) {
+        if (this instanceof Triangle) {
+            return (sqrt(calculatePerimeter() / 2 * (calculatePerimeter() / 2 - sides.get(0))
+                    * (calculatePerimeter() / 2 - sides.get(1)) * (calculatePerimeter() / 2 - sides.get(2))));
         } else {
             return (sides.get(0) * sides.get(1));
         }
@@ -70,8 +68,10 @@ public class Polygon extends Shape {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Polygon)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Polygon))
+            return false;
 
         Polygon polygon = (Polygon) o;
 
