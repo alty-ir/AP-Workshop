@@ -40,7 +40,7 @@ public class CFrame extends JFrame implements ActionListener {
     /**
      * set application icon.
      *
-     * The method set an icon for iNote.
+     * The method set an icon for Note App
      */
     private void setIcon() {
         ImageIcon iconCalculator = new ImageIcon("./images/iNote.png");
@@ -50,7 +50,7 @@ public class CFrame extends JFrame implements ActionListener {
     /**
      * make MenuBar.
      *
-     * The method makes MenuBar for iNote.
+     * The method makes MenuBar for Note App
      */
     private void initMenuBar() {
         JMenuBar menuBar = new JMenuBar();
@@ -78,7 +78,7 @@ public class CFrame extends JFrame implements ActionListener {
     /**
      * make main panel.
      *
-     * The method makes mainPanel for iNote.
+     * The method makes mainPanel for Note App
      */
     private void initMainPanel() {
         mainPanel = new CMainPanel();
@@ -100,11 +100,10 @@ public class CFrame extends JFrame implements ActionListener {
         } else if (e.getSource() == saveDateItem) {
             mainPanel.saveDateNote();
         } else if (e.getSource() == exitItem) {
-            //TODO: Phase1: check all tabs saved ...
             mainPanel.saveAllNotes();
             System.exit(0);
         } else {
-            System.out.println("Nothing detected...");
+            System.out.println("Nothing detected!");
         }
     }
 }

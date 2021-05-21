@@ -40,7 +40,7 @@ public class CMainPanel extends JPanel {
     /**
      * make TabbedPane.
      *
-     * The method makes TabbedPane for iNote.
+     * The method makes TabbedPane for Note App
      */
     private void initTabbedPane() {
         tabbedPane = new JTabbedPane();
@@ -50,13 +50,13 @@ public class CMainPanel extends JPanel {
     /**
      * make DirectoryList.
      *
-     * The method makes DirectoryList for iNote.
+     * The method makes DirectoryList for Note App
      */
     private void initDirectoryList() {
         File[] files = FileUtils.getFilesInDirectory();
         directoryList = new JList<>(files);
 
-        directoryList.setBackground(new Color(211, 211, 211));
+        directoryList.setBackground(new Color(255, 255, 255));
         directoryList.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         directoryList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         directoryList.setVisibleRowCount(-1);
@@ -65,18 +65,17 @@ public class CMainPanel extends JPanel {
         directoryList.setFixedCellWidth(130);
         directoryList.setCellRenderer(new MyCellRenderer());
         directoryList.addMouseListener(new MyMouseAdapter());
-
         add(new JScrollPane(directoryList), BorderLayout.WEST);
     }
 
     /**
      * add new Tab.
      *
-     * The method adds new Tab and textarea to iNote.
+     * The method adds new Tab and textarea to Note App
      */
     public void addNewTab() {
         JTextArea textPanel = createTextPanel();
-        textPanel.setText("Write Something here...");
+        textPanel.setText("Type here...");
         tabbedPane.addTab("Tab " + (tabbedPane.getTabCount() + 1), textPanel);
     }
 

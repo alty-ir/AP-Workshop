@@ -11,9 +11,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        CFrame frame = new CFrame("iNote");
+        CFrame frame = new CFrame("Note App");
         frame.setVisible(true);
-        frame.setSize(500, 500);
+        frame.setSize(400, 400);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     }

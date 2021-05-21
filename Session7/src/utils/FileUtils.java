@@ -38,7 +38,6 @@ public class FileUtils {
      * @return a string of content.
      */
     public static String fileReader(File file) {
-        //TODO: Phase1: read content from file
         StringBuilder content = new StringBuilder();
         BufferedReader objReader = null;
         try {
@@ -47,7 +46,6 @@ public class FileUtils {
             objReader = new BufferedReader(new FileReader(file));
 
             while ((strCurrentLine = objReader.readLine()) != null) {
-
                 content.append(strCurrentLine);
             }
 
@@ -73,11 +71,10 @@ public class FileUtils {
      * @param content a String.
      */
     public static void fileWriter(String content) {
-        //TODO: write content on file
         String fileName = getProperFileName(content);
         BufferedWriter bw = null;
         try {
-            File file = new File(NOTES_PATH + fileName + ".txt");
+            File file = new File(NOTES_PATH + fileName + ".note");
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -106,7 +103,6 @@ public class FileUtils {
      * @param file file.
      * @return a string of content.
      */
-    //TODO: Phase1: define method here for reading file with InputStream
     public static String readFileStream(File file)
     {
         String result = "";
@@ -130,7 +126,6 @@ public class FileUtils {
      *
      * @param content a String.
      */
-    //TODO: Phase1: define method here for writing file with OutputStream
     public static void writeFileStream(String content) {
         String fileName = getProperFileName(content);
         try {
@@ -149,7 +144,6 @@ public class FileUtils {
      * @param file file.
      * @return a string of content.
      */
-    //TODO: Phase2: proper methods for handling serialization
     public static String readObject(File file) {
         try (FileInputStream fs = new FileInputStream(file)){
             ObjectInputStream os = new ObjectInputStream(fs);
@@ -168,7 +162,7 @@ public class FileUtils {
      */
     public static void writeObject(String content) {
         String fileName = getProperFileName(content);
-        try (FileOutputStream fs = new FileOutputStream(NOTES_PATH + fileName + ".note")){
+        try (FileOutputStream fs = new FileOutputStream(NOTES_PATH + fileName + ".txt")){
             ObjectOutputStream  os = new ObjectOutputStream(fs);
             os.writeObject(new Note(fileName, content, new Date().toString()));
 
