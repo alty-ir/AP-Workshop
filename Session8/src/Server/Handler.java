@@ -15,17 +15,17 @@ class Handler implements Runnable {
     // connection socket
     private Socket connectionSocket;
     // client number
-    private int clientNum;
+    private int clientId;
 
     /**
      * Create a Handler.
      *
-     * @param connectionSocket connection socket
-     * @param clientNum        client number
+     * @param connectionSocket   connection socket
+     * @param clientId        client Id
      */
-    public Handler(Socket connectionSocket, int clientNum) {
+    public Handler(Socket connectionSocket, int clientId) {
         this.connectionSocket = connectionSocket;
-        this.clientNum = clientNum;
+        this.clientId = clientId;
     }
 
     /**
@@ -35,7 +35,7 @@ class Handler implements Runnable {
     @Override
     public void run() {
         try {
-            System.out.println("Client" + clientNum + " accepted.");
+            System.out.println("Client" + clientId + " entered...");
             OutputStream out = connectionSocket.getOutputStream();
             InputStream in = connectionSocket.getInputStream();
             byte[] buffer = new byte[2048];
@@ -43,15 +43,15 @@ class Handler implements Runnable {
             while (true) {
                 try {
                     int read = in.read(buffer);
-                    System.out.println("- From Client" + clientNum + ": " + new String(buffer, 0, read));
-                    output.append(" ").append(new String(buffer, 0, read));
-                    System.out.println("+ To Client" + clientNum + ": " + output);
+                    System.out.println("- From Client" + clientId + ": " + new String(buffer, 0, read));
+                    output.append(" - ").append(new String(buffer, 0, read));
+                    System.out.println("+ To Client" + clientId + ": " + output);
                     out.write(output.toString().getBytes());
                 } catch (Exception exception) {
                     break;
                 }
             }
-            System.out.print("Closing connection for Client" + clientNum + ".");
+            System.out.print("Client" + clientId + " exited.");
 
         } catch (Exception e) {
             e.printStackTrace();

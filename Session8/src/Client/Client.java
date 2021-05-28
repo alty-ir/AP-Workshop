@@ -15,8 +15,8 @@ import java.util.Scanner;
 public class Client {
     // Run Client
     public static void main(String[] args) {
-        try (Socket client = new Socket("127.0.0.1", 5001)) {
-            System.out.println("Connected to server.");
+        try (Socket client = new Socket("127.0.0.1", 6001)) {
+            System.out.println("Connected to server...");
             OutputStream out = client.getOutputStream();
             InputStream in = client.getInputStream();
             byte[] buffer = new byte[2048];
@@ -24,7 +24,7 @@ public class Client {
             while (true) {
                 System.out.print("- To Server: ");
                 String massage = scanner.nextLine();
-                if (massage.equals("over")) {
+                if (massage.equals("exit")) {
                     break;
                 }
                 out.write(massage.getBytes());

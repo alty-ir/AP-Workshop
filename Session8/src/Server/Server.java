@@ -17,14 +17,14 @@ public class Server {
     public static void main(String[] args) {
         ExecutorService pool = Executors.newCachedThreadPool();
         int count = 0;
-        try (ServerSocket welcomingSocket = new ServerSocket(5001)) {
-            System.out.println("Server started.\nWaiting for a client ... ");
-            while (count < 10000) {
+        try (ServerSocket welcomingSocket = new ServerSocket(6001)) {
+            System.out.println("Server started.\nWaiting for a client...");
+            while (count < 100) {
                 Socket connectionSocket = welcomingSocket.accept();
                 count++;
                 pool.execute(new Handler(connectionSocket, count));
             }
-            System.out.print("done.\nClosing server ... ");
+            System.out.print("done.\nClosing server...");
             pool.shutdown();
         } catch (IOException ex) {
             System.err.println("Error: " + ex.getMessage());
