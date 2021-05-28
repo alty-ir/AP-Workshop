@@ -130,7 +130,7 @@ public class CMainPanel extends JPanel {
         JTextArea textPanel = (JTextArea) tabbedPane.getSelectedComponent();
         String note = textPanel.getText();
         if (!note.isEmpty()) {
-            FileUtils.writeObject(note);
+            FileUtils.fileWriter(note);
         }
         updateListGUI();
     }
@@ -177,9 +177,11 @@ public class CMainPanel extends JPanel {
                 File fileToRead = curr[index];
                 String content;
                 if (fileToRead.getName().substring(fileToRead.getName().length() - 4).equals(".txt"))
-                    content = FileUtils.fileReader(fileToRead);
-                else
                     content = FileUtils.readObject(fileToRead);
+                    //content = FileUtils.fileReader(fileToRead);
+                else
+                    content = FileUtils.fileReader(fileToRead);
+                    //content = FileUtils.readObject(fileToRead);
                 openExistingNote(content);
             }
         }
